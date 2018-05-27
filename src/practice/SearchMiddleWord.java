@@ -17,7 +17,7 @@ public class SearchMiddleWord {
 		}
 	}
 
-	public static String solution(String word) {
+	private static String solution(String word) {
 		int wordLength = word.length();
 		int middleIndex = wordLength/2;
 		if(oddOrEven(wordLength) == 0)
@@ -26,7 +26,7 @@ public class SearchMiddleWord {
 			return String.valueOf(word.charAt(middleIndex));
 	}
 
-	public static int oddOrEven(int wordLength) {
+	private static int oddOrEven(int wordLength) {
 		return wordLength % 2;
 	}
 }

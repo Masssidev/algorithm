@@ -27,7 +27,7 @@ public class CheckParenthesis {
 		}
 	}
 
-	public static boolean solution(String parenthesis) {
+	private static boolean solution(String parenthesis) {
 		Stack<Character> parenthesisStack = new Stack<>();
 		int parenthesisLength = parenthesis.length();
 		char symbol;

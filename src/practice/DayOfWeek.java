@@ -21,7 +21,7 @@ public class DayOfWeek {
 		}
 	}
 
-	public static String solution(int month, int day) {
+	private static String solution(int month, int day) {
 		int[] dayPerMonth = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		int resultDay = 0;
 		String answer = "";
