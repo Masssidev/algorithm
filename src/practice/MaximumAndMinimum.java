@@ -8,8 +8,6 @@ s에는 둘 이상의 정수가 공백으로 구분되어 있습니다.
 */
 package practice;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class MaximumAndMinimum {
