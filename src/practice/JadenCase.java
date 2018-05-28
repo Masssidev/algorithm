@@ -24,11 +24,13 @@ public class JadenCase {
 	private static String solution(String str) {
 		String[] strArray = str.split(" ");
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < strArray.length; ++i) {
+		for (int i = 0; i < strArray.length - 1; ++i) {
 			sb.append(Character.toUpperCase(strArray[i].charAt(0)));
 			sb.append(strArray[i].substring(1).toLowerCase());
 			sb.append(" ");
 		}
+		sb.append(Character.toUpperCase(strArray[strArray.length - 1].charAt(0)));
+		sb.append(strArray[strArray.length - 1].substring(1).toLowerCase());
 		return sb.toString();
 	}
 }
