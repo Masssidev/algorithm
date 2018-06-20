@@ -36,13 +36,12 @@ public class NigitOvertime {
 	}
 
 	private static int solution(int[] arr, int time) {
-		while (time > 0) {
+		for (int i = 0; i < time; ++i) {
 			Arrays.sort(arr);
 			if (arr[arr.length - 1] == 0)
 				return 0;
 			else {
 				arr[arr.length - 1]--;
-				time--;
 			}
 		}
 		int result = 0;
