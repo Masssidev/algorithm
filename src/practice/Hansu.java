@@ -29,6 +29,7 @@ public class Hansu {
 		int dif = 0;
 		if (numbers.length > 1)
 			dif = Integer.parseInt(numbers[0]) - Integer.parseInt(numbers[1]);
+		
 		for (int i = 1; i < numbers.length - 1; ++i) {
 			if (dif != Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i + 1]))
 				return false;
