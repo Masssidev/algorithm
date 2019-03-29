@@ -8,29 +8,37 @@ s는 알파벳과 공백문자(" ")로 이루어져 있습니다.
 */
 package practice;
 
-import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class JadenCase {
 
 	public static void main(String[] args) {
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.print("문자열을 입력해주세요: ");
-			String str = scanner.nextLine();
-
-			System.out.println(solution(str));
-		}
+		JadenCase theJadenCase = new JadenCase();
+		String s = "3people unFollowed me";
+		System.out.println(theJadenCase.solution(s));
 	}
 
-	private static String solution(String str) {
-		String[] strArray = str.split(" ");
+	public String solution(String s) {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < strArray.length - 1; ++i) {
-			sb.append(Character.toUpperCase(strArray[i].charAt(0)));
-			sb.append(strArray[i].substring(1).toLowerCase());
-			sb.append(" ");
+		int count = 0;
+
+		for (int i = 0; i < s.length(); ++i) {
+			if (s.charAt(i) == ' ') {
+				sb.append(" ");
+				count = 0;
+			} else if (Pattern.matches("^[0-9]*$", String.valueOf(s.charAt(i)))) {
+				sb.append(String.valueOf(s.charAt(i)));
+				count++;
+			} else if (Pattern.matches("^[a-zA-Z]*$", String.valueOf(s.charAt(i)))) {
+				if (count == 0) {
+					sb.append(Character.toUpperCase(s.charAt(i)));
+					count++;
+				} else {
+					sb.append(Character.toLowerCase(s.charAt(i)));
+					count++;
+				}
+			}
 		}
-		sb.append(Character.toUpperCase(strArray[strArray.length - 1].charAt(0)));
-		sb.append(strArray[strArray.length - 1].substring(1).toLowerCase());
 		return sb.toString();
 	}
 }
