@@ -8,30 +8,25 @@ s에는 둘 이상의 정수가 공백으로 구분되어 있습니다.
 */
 package practice;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class MaximumAndMinimum {
 
 	public static void main(String[] args) {
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.print("공백으로 구분된 숫자들을 입력해주세요: ");
-			String s = scanner.nextLine();
-
-			System.out.println(solution(s));
-		}
+		MaximumAndMinimum theMaximumAndMinimum = new MaximumAndMinimum();
+		String s = "-1 -2 -3 -4";
+		System.out.println(theMaximumAndMinimum.solution(s));
 	}
 
-	private static String solution(String s) {
-		String[] sArray = s.split(" ");
-		int min, max, temp;
-		min = max = Integer.parseInt(sArray[0]);
-		for (int i = 1; i < sArray.length; ++i) {
-			temp = Integer.parseInt(sArray[i]);
-			if (min > temp)
-				min = temp;
-			if (max < temp)
-				max = temp;
+	public String solution(String s) {
+		String[] arr = s.split(" ");
+
+		int[] intArray = new int[arr.length];
+		int idx = 0;
+		for(String value: arr) {
+			intArray[idx++] = Integer.parseInt(value);
 		}
-		return min + " " + max;
+		Arrays.sort(intArray);
+		return intArray[0] + " " + intArray[intArray.length - 1];
 	}
 }
