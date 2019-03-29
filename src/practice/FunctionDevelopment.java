@@ -37,7 +37,6 @@ public class FunctionDevelopment {
 				count++;
 			} else {
 				countList.add(count);
-				System.out.println(count);
 				count = 1;
 				standard = num;
 			}
