@@ -21,6 +21,6 @@ public class Conversion {
 			else
 				return Integer.parseInt(s);
 		}
-
 	}
+	
 }
