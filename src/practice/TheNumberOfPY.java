@@ -18,7 +18,6 @@ public class TheNumberOfPY {
         int theNumberOfY = 0;
         int theNumberOfP = 0;
         
-        s.toUpperCase();
         for(int i=0; i<s.length(); ++i) {
             if(s.toUpperCase().charAt(i) == 'Y')
                 theNumberOfY++;
