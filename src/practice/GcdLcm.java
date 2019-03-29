@@ -9,41 +9,37 @@
 package practice;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class GcdLcm {
 
 	public static void main(String[] args) {
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.print("두 수를 입력해주세요: ");
-			int num1 = scanner.nextInt();
-			int num2 = scanner.nextInt();
-			System.out.println(Arrays.toString(solution(num1, num2)));
-		}
+		GcdLcm theGcmLcm = new GcdLcm();
+		int n = 3;
+		int m = 12;
+		System.out.println(Arrays.toString(theGcmLcm.solution(n, m)));
 	}
 
-	private static int[] solution(int num1, int num2) {
-		return new int[] { gcd(num1, num2), lcm(num1, num2) };
+	public int[] solution(int n, int m) {
+		int[] answer = { gcd(n, m), lcm(n, m) };
+		return answer;
 	}
 
-	private static int gcd(int num1, int num2) {
-		if (num1 > num2) {
-			int temp = num1;
-			num1 = num2;
-			num2 = temp;
+	public int gcd(int n, int m) {
+		if (n < m) {
+			int temp = n;
+			n = m;
+			m = temp;
 		}
-
 		int r = 1;
 		while (r > 0) {
-			r = num1 % num2;
-			num1 = num2;
-			num2 = r;
+			r = n % m;
+			n = m;
+			m = r;
 		}
-
-		return num1;
+		return n;
 	}
 
-	private static int lcm(int num1, int num2) {
-		return num1 * num2 / gcd(num1, num2);
+	public int lcm(int n, int m) {
+		return n * m / gcd(n, m);
 	}
 }

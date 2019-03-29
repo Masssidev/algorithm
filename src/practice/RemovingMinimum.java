@@ -19,16 +19,20 @@ public class RemovingMinimum {
 	public int[] solution(int[] arr) {
 		if(arr.length == 1)
 			return new int[] {-1};
+		
 		List<Integer> arrayList = new ArrayList<Integer>();
 		for(int value : arr) {
 			arrayList.add(value);
 		}
+		
 		Arrays.sort(arr);
 		arrayList.remove((Integer)arr[0]);
+		
 		int[] answer = new int[arrayList.size()];
 		int idx = 0;
 		for(int value : arrayList)
 			answer[idx++] = value;
+		
 		return answer;
 	}
 }

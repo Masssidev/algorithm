@@ -10,27 +10,23 @@
 */
 package practice;
 
-import java.util.Scanner;
-
 public class Collatz {
 
 	public static void main(String[] args) {
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.print("정수를 입력해주세요: ");
-			int num = scanner.nextInt();
-
-			System.out.println(solution(num));
-		}
+		Collatz theCollatz = new Collatz();
+		int num = 626332;
+		System.out.println(theCollatz.solution(num));
 	}
 
-	private static int solution(int num) {
-		int count = 0;
-		while (num != 1) {
-			if (count == 500)
-				return -1;
-			num = (num % 2 == 0 ? num / 2 : num * 3 + 1);
-			count++;
+	public int solution(int num) {
+		for(int i=0; i<500; ++i) {
+			if(num == 1)
+				return i;
+			if(num % 2 ==0)
+				num = num / 2;
+			else
+				num = num * 3 + 1;
 		}
-		return count;
+		return -1;
 	}
 }
